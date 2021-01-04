@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta name="description" content="This website will show generate lab environments">
+        <meta name="keywords" content="terminal, web, lab">
+        <title>AgnosticLP</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+    
+            .row::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+    
+            [class*="col-"] {
+                float: left;
+                padding: 15px;
+                resize: both
+            }
+    
+                        .col-doc {width: 40%;}
+                        .col-terminal {width: 60%;}
+                
+            html {
+                font-family: "Lucida Sans", sans-serif;
+            }
+    
+            .header {
+            }
+        </style>
+    </head>  
+    <body>
+        <header>
+        <div class="header">
+        </div>
+        </header>
+        <main>
+        <hr/>
+        <h1>hello from index.html</h1>
+#        <div class="row">
+#                        <span class="col-doc">
+#                <iframe id="doc"  src="http://localhost/template-tutorial/01-ansible-refactoring-overview.html" width="100%" style="border:none;"></iframe>
+#                <script>
+#                height = "80%".replace("%","")
+#                height = screen.height / 100 * height;
+#                document.getElementById("doc").height= height;
+#                </script>
+#            </span>
+#                        <span class="col-terminal">
+#                <iframe id="terminal"  src="http://localhost:10080" width="100%" style="border:none;"></iframe>
+#                <script>
+#                height = "80%".replace("%","")
+#                height = screen.height / 100 * height;
+#                document.getElementById("terminal").height= height;
+#                </script>
+#            </span>
+#                    </div>
+        </main>
+        <footer>
+        </footer>
+    </body>
+</html>
