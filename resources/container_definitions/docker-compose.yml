@@ -1,0 +1,85 @@
+---
+
+networks:
+  default:
+      name: example.com
+
+services:
+
+  control:
+    container_name: control
+    hostname: control
+    image: tonykay/vmlet-rhel-8-ansible
+    ports:
+      - "22"
+    privileged: true
+    volumes:
+      - "../bind_mounts/ssh:/opt/app-root/src/.ssh:z,ro"
+    
+  frontend:
+    container_name: frontend
+    hostname: frontend
+    image: tonykay/vmlet-rhel-8-ansible
+    ports:
+      - "22"
+      - "8888:80"
+    privileged: true
+
+  app-01:
+    container_name: app-01
+    hostname: app-01
+    image: tonykay/vmlet-rhel-8-ansible
+    ports:
+      - "22"
+    privileged: true
+
+  app-02:
+    container_name: app-02
+    hostname: app2
+    image: tonykay/vmlet-rhel-8-ansible
+    ports:
+      - "22"
+    privileged: true
+
+  appdb:
+    container_name: appdb
+    hostname: appdb
+    image: tonykay/vmlet-rhel-8-ansible
+    ports:
+      - "22"
+    privileged: true
+
+  terminal:
+    container_name: terminal
+    hostname: terminal
+    image: quay.io/openshifthomeroom/workshop-terminal:latest
+    ports:
+      - "10080:10080"
+    volumes:
+      - "../bind_mounts/ssh:/opt/app-root/src/.ssh:z,ro"
+
+  web-backend:
+    container_name: web-backend
+    hostname: web-backend
+    image: quay.io/varodrig/containers-lab:1.0
+    ports:
+      - "8080:80"
+
+#  - name: classroom
+#    group: classroom-backend
+#    image: rhel-8-httpd  
+#    volumes:
+#      - "{{ envy_local_home }}/.classroom/output:/var/www/html/:z,rw"
+#      - "~/.ansible/collections/ansible_collections/tonykay/envy/playbooks/vars/classroom/index.html://var/www/html/index.html:z,rw"
+#    ports:
+#      - "80:8080"
+
+#  - name: classroom
+#    group: lab-webserver
+#    image: "agnosticlpweb:1.0"
+#    volumes:
+#      - "/tmp/index.html:/usr/share/nginx/html/index.html:z,rw"
+#    ports:
+#      - "80:80"
+
+...
