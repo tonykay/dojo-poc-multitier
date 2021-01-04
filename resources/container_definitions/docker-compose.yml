@@ -58,40 +58,13 @@ services:
     volumes:
       - "../bind_mounts/ssh:/opt/app-root/src/.ssh:z,ro"
 
-#  web-backend:
-#    container_name: web-backend
-#    hostname: web-backend
-#    image: quay.io/varodrig/containers-lab:1.0
-#    ports:
-#      - "8080:80"
-
   classroom-httpd:
     container_name: classroom-httpd
     hostname: classroom-httpd
     image: httpd
     volumes:
       - "../bind_mounts/content:/usr/local/apache2/htdocs:z,ro"
-        #- "../bind_mounts/content/template-tutorial:/usr/local/apache2/htdocs/template-tutorial:z,ro"
-      #- "../bind_mounts/content:/usr/local/apache2/htdocs:z,ro"
-        #- "../bind_mounts/content:/usr/local/apache2/htdocs/:z,rw"
     privileged: true
     ports:
       - "80:80"
-
-#    group: classroom-backend
-#    image: rhel-8-httpd  
-#    volumes:
-#      - "{{ envy_local_home }}/.classroom/output:/var/www/html/:z,rw"
-#      - "~/.ansible/collections/ansible_collections/tonykay/envy/playbooks/vars/classroom/index.html://var/www/html/index.html:z,rw"
-#    ports:
-#      - "80:8080"
-
-#  - name: classroom
-#    group: lab-webserver
-#    image: "agnosticlpweb:1.0"
-#    volumes:
-#      - "/tmp/index.html:/usr/share/nginx/html/index.html:z,rw"
-#    ports:
-#      - "80:80"
-
 ...

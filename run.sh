@@ -4,8 +4,7 @@
 
 run_docker_compose_deployment ()
 {
-  echo docker deployment
-  docker-compose up -d -f resources/container_definitions/docker-compose.yml
+  docker-compose -f resources/container_definitions/docker-compose.yml up -d
 }
 
 run_docker_compose_deployment 
