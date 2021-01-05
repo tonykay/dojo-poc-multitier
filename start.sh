@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Determine script directory even from sym link directories for correct paths
+
+_DOJO_HOME=$(cd -P -- "$(dirname -- "$0")" && pwd -P) && SELF_PATH=$SELF_PATH/$(basename -- "$0")
+
 detect_os () # For container run-time and installers
 {
   _PLATFORM=unknown
@@ -30,7 +34,7 @@ ensure_container_runtime ()
 
 run_docker_compose_deployment ()
 {
-  docker-compose -f resources/container_definitions/docker-compose.yml up -d
+  docker-compose -f ${_DOJO_HOME}/resources/orchestration/docker-compose.yml up -d
 }
 
 
