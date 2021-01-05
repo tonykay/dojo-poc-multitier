@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Untitled :: Ansible Refactoring</title>
-    <link rel="canonical" href="http://localhost:3000/rhs-build-course/index.html/template-tutorial/01-ansible-refactoring-overview.html">
+    <title>Ansible Refactoring :: Ansible Refactoring</title>
+    <link rel="canonical" href="http://localhost:3000/rhs-build-course/index.html/template-tutorial/index.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
@@ -69,15 +69,15 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="01-ansible-refactoring-overview.html">1. Overview</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#infrastucture">The Infrastucture</a>
+    <a class="nav-link" href="01-ansible-refactoring-overview.html#infrastucture">The Infrastucture</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#application">The Application</a>
+    <a class="nav-link" href="01-ansible-refactoring-overview.html#application">The Application</a>
   </li>
 </ul>
   </li>
@@ -159,82 +159,85 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="index.html" class="home-link"></a>
+  <a href="index.html" class="home-link is-current"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Ansible Refactoring</a></li>
-    <li><a href="01-ansible-refactoring-overview.html">1. Overview</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="file:///Users/tok/Dropbox/MBP15/repos/classroom-multi/documentation/modules/ROOT/pages/01-ansible-refactoring-overview.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="file:///Users/tok/Dropbox/MBP15/repos/classroom-multi/documentation/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <article class="doc">
-<div class="sect1">
-<h2 id="_refactoring_ansible_modularity_reuse_and_maintainability"><a class="anchor" href="#_refactoring_ansible_modularity_reuse_and_maintainability"></a>Refactoring Ansible Modularity, Reuse, and Maintainability</h2>
+<h1 class="page">Ansible Refactoring</h1>
+<div class="sect1 text-center strong">
+<h2>An Introduction to Refactoring Ansible</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>My dyanmic var is hello world</p>
+<p>An Ansible Refactoring Series - from Monolithic Playbook to Ansible Collections and Roles</p>
 </div>
-<div class="paragraph">
-<p>In this series I want to explore refactoring a good, or at least <em>decent</em>, monolithic application deployment playbook into something more modular, easier to maintain, and with simpler and better reusability
-We&#8217;ll start by validating it works before our first pass at simply breaking it into more modular playbooks and separating out the variables.</p>
 </div>
-<div class="paragraph">
-<p>Moving on we&#8217;ll identify what if any components would be be better off suited to roles and consider using one or more existing roles from <a href="https://galaxy.ansible.com">Ansible Galaxy</a> if appropriate.
-Finally we&#8217;ll turn our attention to the <strong>Postgresql</strong> component and look at how we could move this into an Ansible Collection, and if this makes sense.</p>
 </div>
-<div class="ulist">
+<div class="sect1 tiles browse">
+<h2>Browse the Labs</h2>
+<div class="sectionbody">
+<div class="ulist tile">
+<div class="title"><a href="01-ansible-refactoring-overview.html" class="page">Overview</a></div>
 <ul>
 <li>
-<p><a href="02-ansible-refactoring-control-node.html">Part 1 - Setting up your Control Node</a></p>
+<p><a href="01-ansible-refactoring-overview.html#infrastucture" class="page">The Infrastucture</a></p>
 </li>
 <li>
-<p><a href="03-ansible-refactoring-series.html">Part 2 - First Deploy</a></p>
-</li>
-<li>
-<p><a href="04-ansible-refactoring-series.html">Part 3 - First Refactor</a></p>
-</li>
-<li>
-<p><a href="05-ansible-refactoring-series.html">Part 4 - Roles Refactor First Pass</a></p>
+<p><a href="01-ansible-refactoring-overview.html#application" class="page">The Application</a></p>
 </li>
 </ul>
 </div>
-<div class="sect2">
-<h3 id="infrastucture"><a class="anchor" href="#infrastucture"></a>The Infrastructure</h3>
-<div class="paragraph">
-<p>A simple multi-tier infrastructure with a load-balancer (HAProxy) acting as a front end to 2 app servers running a flask application using Postgres as its persistance datastore.</p>
-</div>
-<div class="ulist">
+<div class="ulist tile">
+<div class="title"><a href="02-ansible-refactoring-control-node.html" class="page">Setting up your Control Node</a></div>
 <ul>
 <li>
-<p><a href="https://github.com/tonykay/ansible_flask_app_loader_all_in_one.git">The Deployer Repo (github)</a> - your job is to refactor this</p>
+<p><a href="02-ansible-refactoring-control-node.html#environment" class="page">Your Environment</a></p>
+</li>
+<li>
+<p><a href="02-ansible-refactoring-control-node.html#connect" class="page">Connect to your Control Node</a></p>
+</li>
+<li>
+<p><a href="02-ansible-refactoring-control-node.html#explore" class="page">Explore your Control Node</a></p>
 </li>
 </ul>
 </div>
-<div class="imageblock thumb center">
-<div class="content">
-<img src="_images/ntier-topology.png" alt="ntier topology" width="100%">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="application"><a class="anchor" href="#application"></a>The Application</h3>
-<div class="ulist">
+<div class="ulist tile">
+<div class="title"><a href="03-ansible-refactoring-first-deploy.html" class="page">First Deploy</a></div>
 <ul>
 <li>
-<p><a href="https://github.com/tonykay/resource_hub.git">The Application (github)</a> - what is being deployed onto the <em>app tier</em></p>
+<p><a href="03-ansible-refactoring-first-deploy.html#deploy" class="page">Deploy</a></p>
 </li>
 </ul>
 </div>
-<div class="imageblock thumb center">
-<div class="content">
-<img src="_images/ntier-app-topology.png" alt="ntier app topology" width="100%">
+<div class="ulist tile">
+<div class="title"><a href="04-ansible-refactoring-first-refactor.html" class="page">First Refactor</a></div>
+<ul>
+<li>
+<p><a href="04-ansible-refactoring-first-refactor.html#approach" class="page">Approach</a></p>
+</li>
+<li>
+<p><a href="04-ansible-refactoring-first-refactor.html#variables" class="page">Refactor the Variables</a></p>
+</li>
+<li>
+<p><a href="04-ansible-refactoring-first-refactor.html#templates" class="page">Cleanup the Templates</a></p>
+</li>
+</ul>
 </div>
-</div>
-<div class="paragraph">
-<p>Time to get started with <a href="02-ansible-refactoring-series.html">Setting up your Control Node</a></p>
-</div>
+<div class="ulist tile">
+<div class="title"><a href="05-ansible-refactoring-roles-part1.html" class="page">Moving to Roles Part 1</a></div>
+<ul>
+<li>
+<p><a href="05-ansible-refactoring-roles-part1.html#postgres2role" class="page">Convert Postgres Play to Role</a></p>
+</li>
+<li>
+<p><a href="05-ansible-refactoring-roles-part1.html#solution" class="page">Solution</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
