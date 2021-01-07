@@ -41,4 +41,6 @@ run_docker_compose_deployment ()
 detect_os
 run_docker_compose_deployment 
 
-
+echo 
+echo "You can access your lab at http://localhost"
+echo

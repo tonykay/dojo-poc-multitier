@@ -74,7 +74,7 @@
     <a class="nav-link" href="01-ansible-refactoring-overview.html">1. Overview</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#infrastucture">The Infrastucture</a>
+    <a class="nav-link" href="#infrastructure">The Infrastructure</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="#application">The Application</a>
@@ -174,10 +174,7 @@
 <h2 id="_refactoring_ansible_modularity_reuse_and_maintainability"><a class="anchor" href="#_refactoring_ansible_modularity_reuse_and_maintainability"></a>Refactoring Ansible Modularity, Reuse, and Maintainability</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>My dyanmic var is hello world</p>
-</div>
-<div class="paragraph">
-<p>In this series I want to explore refactoring a good, or at least <em>decent</em>, monolithic application deployment playbook into something more modular, easier to maintain, and with simpler and better reusability
+<p>In this workshop we will explore refactoring a good, or at least <em>decent</em>, monolithic application deployment playbook into something more modular, easier to maintain, and with simpler and better reusability
 We&#8217;ll start by validating it works before our first pass at simply breaking it into more modular playbooks and separating out the variables.</p>
 </div>
 <div class="paragraph">
@@ -201,14 +198,14 @@ Finally we&#8217;ll turn our attention to the <strong>Postgresql</strong> compon
 </ul>
 </div>
 <div class="sect2">
-<h3 id="infrastucture"><a class="anchor" href="#infrastucture"></a>The Infrastructure</h3>
+<h3 id="infrastructure"><a class="anchor" href="#infrastructure"></a>The Infrastructure</h3>
 <div class="paragraph">
 <p>A simple multi-tier infrastructure with a load-balancer (HAProxy) acting as a front end to 2 app servers running a flask application using Postgres as its persistance datastore.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/tonykay/ansible_flask_app_loader_all_in_one.git">The Deployer Repo (github)</a> - your job is to refactor this</p>
+<p><a href="https://github.com/tonykay/ansible_flask_app_loader_all_in_one.git" target="_blank" rel="noopener">The Deployer Repo (github)</a> - your job is to refactor this</p>
 </li>
 </ul>
 </div>
@@ -223,7 +220,7 @@ Finally we&#8217;ll turn our attention to the <strong>Postgresql</strong> compon
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/tonykay/resource_hub.git">The Application (github)</a> - what is being deployed onto the <em>app tier</em></p>
+<p><a href="https://github.com/tonykay/resource_hub.git" target="_blank" rel="noopener">The Application (github)</a> - what is being deployed onto the <em>app tier</em></p>
 </li>
 </ul>
 </div>
@@ -233,7 +230,7 @@ Finally we&#8217;ll turn our attention to the <strong>Postgresql</strong> compon
 </div>
 </div>
 <div class="paragraph">
-<p>Time to get started with <a href="02-ansible-refactoring-series.html">Setting up your Control Node</a></p>
+<p>Time to get started with <a href="02-ansible-refactoring-control-node.html">Setting up your Control Node</a></p>
 </div>
 </div>
 </div>

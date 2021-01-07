@@ -74,7 +74,7 @@
     <a class="nav-link" href="01-ansible-refactoring-overview.html">1. Overview</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="01-ansible-refactoring-overview.html#infrastucture">The Infrastucture</a>
+    <a class="nav-link" href="01-ansible-refactoring-overview.html#infrastructure">The Infrastructure</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="01-ansible-refactoring-overview.html#application">The Application</a>
@@ -174,8 +174,7 @@
 <h2 id="_first_refactor"><a class="anchor" href="#_first_refactor"></a>First Refactor</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In our first pass through the project we will just focus on breaking it up into more modular components, breaking apart the variables from the code, and cleaning up the base directory by moving out any files or templates into sub-directories.
-If you are <a href="https://www.jeffgeerling.com/">Jeff Geerling</a> and very comfortable with writing <strong>roles</strong> and <strong>collections</strong> then this part can be skipped!</p>
+<p>In our first pass through the project we will just focus on breaking it up into more modular components, breaking apart the variables from the code, and cleaning up the base directory by moving out any files or templates into sub-directories.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Process</div>
@@ -271,12 +270,11 @@ If you are curious to try then install <code>python3</code> and the use <code>pi
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">sudo yum install python3 -y
-sudo pip3 install ansible-review</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">sudo pip3 install ansible-review yamllint</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Output omitted for brevity and <strong>yes</strong> using <code>sudo</code> for <code>pip3</code> is a bad practice but a useful shortcut for now (use virtualenvs or link to <code>/usr/local/bin</code> would be better but a few more steps)</p>
+<p>Output omitted for brevity and <strong>yes</strong> using <code>sudo</code> for <code>pip3</code> is a bad practice but a useful shortcut for now (use virtualenvs or <code>pip3 install --user</code> and link to <code>/usr/local/bin</code> would be better but a few more steps)</p>
 </div>
 <div class="listingblock">
 <div class="title">Try it on your new playbooks</div>
@@ -459,13 +457,14 @@ Each file will take the name of its <code>group</code> postfixed by <code>.yml</
 <div class="title">Sample Output</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-texinfo hljs" data-lang="texinfo">@all:
-  |--@app_servers:
-  |  |--app1.fe87.internal
-  |  |--app2.fe87.internal
-  |--@database_servers:
-  |  |--appdb1.fe87.internal
-  |--@load_balancers:
-  |  |--frontend1.fe87.internal
+  |--@internal:
+  |  |--@app_servers:
+  |  |  |--app-01
+  |  |  |--app-02
+  |  |--@database_servers:
+  |  |  |--appdb1
+  |  |--@load_balancers:
+  |  |  |--frontend
   |--@ungrouped:</code></pre>
 </div>
 </div>
@@ -489,6 +488,22 @@ cp provision_load_balancer_tier.yml group_vars/load_balancers.yml</code></pre>
 </li>
 <li>
 <p>Fix the indentation, aligning the vars with column 1</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This is a quick and simple way to ensure you get all the vars accurately across.
+Basically you are copying the playbooks over, and the stripping everything out other the the vars themselves.
+It is very common practice in ansible to start with a playbook and then refactor into more modular components by copying and cleaning up into a more composed structure.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -832,6 +847,9 @@ Meanwhile it can be found <a href="https://github.com/tonykay/solution_ansible_f
 <div class="paragraph">
 <p>Congratulations, you know have a cleaner codebase that is more modular and easier to maintain.
 However it is still a bit "clunky" and it would be awkward for another team to <em>"borrow"</em> say your Postgres playbook.</p>
+</div>
+<div class="paragraph">
+<p>The next step will be to move your playbooks, and <em>some</em> of the vars into reusable roles.</p>
 </div>
 </div>
 </div>
