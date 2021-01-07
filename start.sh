@@ -2,7 +2,8 @@
 
 # Determine script directory even from sym link directories for correct paths
 
-_DOJO_HOME=$(cd -P -- "$(dirname -- "$0")" && pwd -P) && SELF_PATH=$SELF_PATH/$(basename -- "$0")
+_FULL_PATH=$(cd -P -- "$(dirname -- "$0")" && pwd -P) && SELF_PATH=$SELF_PATH/$(basename -- "$0" | awk '{ print $NF }')
+_DOJO_HOME=$(echo $_FULL_PATH | awk '{ print $1 }') # weirdness with paths, should be able to combine with above
 
 validate_runtime_by_os () # For container run-time and installers
 {
