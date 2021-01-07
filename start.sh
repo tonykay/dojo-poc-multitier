@@ -34,9 +34,11 @@ validate_runtime_by_os () # For container run-time and installers
 ensure_mac_container_runtime ()
 {
   # deal with Mac && Docker
-  if [ -f /usr/local/bin/docker-composeid ]
+  echo checking container runtime
+  if [ -f /usr/local/bin/docker-compose ]
   then
-    echo docker installed
+    echo docker-compose is already installed
+    echo
   else
     # mac_version_installer
     _DOCKER_DESKTOP_MINIMUM="10.14"
@@ -53,16 +55,21 @@ ensure_mac_container_runtime ()
   fi
 }
 
+
 run_docker_compose_deployment ()
 {
   docker-compose -f ${_DOJO_HOME}/resources/orchestration/docker-compose.yml up -d
 }
 
-detect_os
-# ensure_container_runtime
+access_message ()
+{
+  echo
+  echo "You can access your lab at http://localhost"
+  echo
+}
+
+validate_runtime_by_os 
 run_docker_compose_deployment 
-				 
-echo
-echo "You can access your lab at http://localhost"
-echo
+access_message
+		 
 
