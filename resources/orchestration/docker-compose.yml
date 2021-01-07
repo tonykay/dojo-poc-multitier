@@ -19,8 +19,7 @@ services:
   frontend:
     container_name: frontend
     hostname: frontend
-      #    image: docker.io/tonykay/vmlet-rhel-7-target
-    image: vmlet-rhel-8:8.2
+    image: docker.io/tonykay/vmlet-rhel-8:8.2
     ports:
       - "22"
       - "8080:80"
@@ -29,20 +28,15 @@ services:
   app-01:
     container_name: app-01
     hostname: app-01
-      # image: docker.io/tonykay/vmlet-rhel-7-target
-    image: vmlet-rhel-8:8.2
+    image: docker.io/tonykay/vmlet-rhel-8:8.2
     ports:
       - "22"
     privileged: true
 
   app-02:
     container_name: app-02
-    hostname: app2
-      #image: docker.io/tonykay/vmlet-rhel-7-target
-      #image: tonykay/vmlet-rhel-8-ansible
-      #image: docker.io/tonykay/vmlet-rhel-8-ansible
-      #image: docker.io/tonykay/vmlet-rhel-7-target
-    image: vmlet-rhel-8:8.2
+    hostname: app-02
+    image: docker.io/tonykay/vmlet-rhel-8:8.2
     ports:
       - "22"
     privileged: true
@@ -51,7 +45,6 @@ services:
     container_name: appdb1
     hostname: appdb1
     image: docker.io/tonykay/vmlet-rhel-7-target
-    #image: docker.io/tonykay/vmlet-rhel-8-ansible
     ports:
       - "22"
     privileged: true
