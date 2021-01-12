@@ -31,3 +31,14 @@ curl -L -C - -O https://github.com/tonykay/dojo-poc-multitier/raw/main/builds/do
 unzip dojo-multitier.zip
 ./dojo/start.sh
 ----
+
+
+==== Notes: Mac Setup
+
+macOS has a single dependency `docker`. The Docker machine distribution includes `docker-compose`
+
+
+[source,sh]
+----
+ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
