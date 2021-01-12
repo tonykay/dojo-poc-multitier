@@ -77,17 +77,14 @@ validate_runtime_by_os () # For container run-time and installers
 ensure_mac_container_runtime ()
 {
   # deal with Mac && Docker
-  echo checking container runtime
-  if [ -f /usr/local/bin/docker-compose ]
-  then
-    echo docker-compose is already installed
-    echo
-  else
+  # echo checking container runtime
+  if [ ! -f /usr/local/bin/docker-compose ]
+  then 
     # mac_version_installer
     _DOCKER_DESKTOP_MINIMUM="10.14"
     _MACOS_VERSION=$(defaults read loginwindow SystemVersionStampAsString)
     echo docker-compose not installed
-    echo You can install this manualy with:
+    echo You can install this manually with:
     echo
      if [ "$(printf '%s\n' "$_DOCKER_DESKTOP_MINIMUM" "$_MACOS_VERSION" | sort -V | head -n1)" = "$_DOCKER_DESKTOP_MINIMUM" ]; then 
             echo brew install --cask docker
@@ -110,6 +107,11 @@ run_docker_compose_up ()
 run_docker_compose_down ()
 {
   docker-compose -f ${_DOJO_HOME}/resources/orchestration/docker-compose.yml down
+  if [ "$?" -eq 0 ]
+  then
+    echo
+    echo "Environment is removed, 'dojo up' to restart"
+  fi
 }
 
 access_message ()
