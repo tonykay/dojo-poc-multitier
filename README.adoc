@@ -2,10 +2,10 @@
 
 Dojo PoC installs and starts: 
 
-* An Ansible PoC Lab Environmnet
+* An Ansible PoC Lab Environment
 * A `classroom` browser based lab including:
 ** Webserver running on localhost port 80 i.e. http://localhost
-** A terminal session with lab credentials also availble on http://localhost
+** A terminal session with lab credentials also available on http://localhost
 
 === Prerequisites
 
@@ -29,16 +29,31 @@ First run may take a few moments as the images are pulled.
 ----
 curl -L -C - -O https://github.com/tonykay/dojo-poc-multitier/raw/main/builds/dojo-multitier.zip
 unzip dojo-multitier.zip
-./dojo/start.sh
+./dojo/dojo up
 ----
-
-
-==== Notes: Mac Setup
-
-macOS has a single dependency `docker`. The Docker machine distribution includes `docker-compose`
-
+=== Deactivating and stopping the Environment
 
 [source,sh]
 ----
- /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+./dojo/dojo down
+----
+==== Notes: Mac Setup
 
+*Dojo* assumes the presence of the non Apple `brew` Package Manager which is in widespread use amongst Mac users *but* is not
+part of Apple's macOS Operating System.
+`brew` can be installed manually and in-turn will install any dependencies.
+
+macOS has a single dependency `docker`. The Docker machine distribution includes `docker-compose`
+
+.Installing Brew
+[source,sh]
+----
+ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+----
+
+
+////
+[NOTE]
+====
+ Mac Installation instructions are still
+////
